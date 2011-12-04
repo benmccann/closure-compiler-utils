@@ -41,7 +41,7 @@ uploadArchives {
           id 'benmccann'
           name 'Benjamin McCann'
           organization 'BenMcCann.com'
-          organizationUrl 'http://www.benmccann.com'
+          organizationUrl 'http://www.benmccann.com/'
         }
       }
     }
