@@ -20,17 +20,30 @@ dependencies {
 }
 
 uploadArchives {
-  repositories {
-     mavenDeployer {
-       pom.project {
-         licenses {
-           license {
-             name 'The Apache Software License, Version 2.0'
-             url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-             distribution 'repo'
-           }
-         }
-       }
-     }
+  repositories.mavenDeployer {
+    pom.project {
+      name 'Closure Compiler Utils'
+      description 'Utilities for calling the Google Closure Compiler to optimize and detect errors in JavaScript code.'
+      url 'https://github.com/benmccann/Closure-Compiler-Utils'
+      licenses {
+        license {
+          name 'The Apache Software License, Version 2.0'
+          url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+          distribution 'repo'
+        }
+      }
+      scm {
+        url "https://github.com/benmccann/Closure-Compiler-Utils"
+        connection "scm:git:http://github.com/benmccann/Closure-Compiler-Utils.git"
+      }
+      developers {
+        developer {
+          id 'benmccann'
+          name 'Benjamin McCann'
+          organization 'BenMcCann.com'
+          organizationUrl 'http://www.benmccann.com'
+        }
+      }
+    }
   }
 }
