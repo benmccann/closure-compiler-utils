@@ -1,0 +1,23 @@
+# Gradle
+.gradle
+.externalToolBuilders
+
+# Eclipse
+.project
+.metadata
+local.properties
+.classpath
+.settings/
+.loadpath
+
+# Compiled
+build
+**/bin
+*.py[co]
+
+# Temporary
+**/tmp
+*.tmp
+*.bak
+*.swp
+*~.nib
