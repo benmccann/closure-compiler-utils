@@ -2,6 +2,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
 
 group = 'com.benmccann'
+version = '0.1'
 
 sourceSets {
   main {
@@ -16,4 +17,20 @@ repositories {
 dependencies {
   compile 'com.google.javascript:closure-compiler:r1592'
   compile 'javax.servlet:javax.servlet-api:3.0.1'
+}
+
+uploadArchives {
+  repositories {
+     mavenDeployer {
+       pom.project {
+         licenses {
+           license {
+             name 'The Apache Software License, Version 2.0'
+             url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+             distribution 'repo'
+           }
+         }
+       }
+     }
+  }
 }
