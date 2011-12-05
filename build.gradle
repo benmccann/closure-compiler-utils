@@ -1,15 +1,8 @@
-buildscript {
-  repositories {
-    mavenCentral()
-  }
-  dependencies {
-    classpath 'de.huxhorn.gradle:de.huxhorn.gradle.pgp-plugin:0.0.4'
-  }
-}
+// Copyright 2011 Benjamin McCann. All Rights Reserved.
 
 apply plugin: 'java'
 apply plugin: 'maven'
-apply plugin: de.huxhorn.gradle.pgp.PgpPlugin
+apply plugin: 'signing'
 
 group = 'com.benmccann'
 version = '0.1'
@@ -44,15 +37,13 @@ artifacts {
   archives javadocJar
 }
 
-pgp {
-  secretKeyRingFile = new File("${System.properties['user.home']}/.gnupg/secring.gpg")
-  keyId = pgpKeyId
-  password = pgpPassword
+signing {
+  sign configurations.archives
 }
 
 uploadArchives {
   repositories.mavenDeployer {
-    configuration = configurations.archives
+    beforeDeployment { MavenDeployment deployment -> signPom(deployment) }
     repository(url: "http://oss.sonatype.org/service/local/staging/deploy/maven2/") {
       authentication(userName: nexusUsername, password: nexusPassword)
     }
