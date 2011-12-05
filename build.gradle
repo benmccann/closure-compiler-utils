@@ -1,5 +1,15 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'de.huxhorn.gradle:de.huxhorn.gradle.pgp-plugin:0.0.4'
+  }
+}
+
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: de.huxhorn.gradle.pgp.PgpPlugin
 
 group = 'com.benmccann'
 version = '0.1'
@@ -19,8 +29,33 @@ dependencies {
   compile 'javax.servlet:javax.servlet-api:3.0.1'
 }
 
+task sourcesJar(type: Jar, dependsOn: classes) {
+  classifier = 'sources'
+  from sourceSets.main.allSource
+}
+ 
+task javadocJar(type: Jar, dependsOn: javadoc) {
+  classifier = 'javadoc'
+  from javadoc.destinationDir
+}
+
+artifacts {
+  archives sourcesJar
+  archives javadocJar
+}
+
+pgp {
+  secretKeyRingFile = new File("${System.properties['user.home']}/.gnupg/secring.gpg")
+  keyId = pgpKeyId
+  password = pgpPassword
+}
+
 uploadArchives {
   repositories.mavenDeployer {
+    configuration = configurations.archives
+    repository(url: "http://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+      authentication(userName: nexusUsername, password: nexusPassword)
+    }
     pom.project {
       name 'Closure Compiler Utils'
       description 'Utilities for calling the Google Closure Compiler to optimize and detect errors in JavaScript code.'

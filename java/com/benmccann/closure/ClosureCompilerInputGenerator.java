@@ -38,7 +38,7 @@ public class ClosureCompilerInputGenerator {
 
   /**
    * @param closureBaseFile Closure's base.js
-   * @param depsPaths Closure's deps.js and any deps.js from your own project
+   * @param depsFiles Closure's deps.js and any deps.js from your own project
    * @param entryPoints namespace for the entry point to your JS
    */
   public ClosureCompilerInputGenerator(
