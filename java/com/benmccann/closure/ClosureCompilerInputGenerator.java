@@ -53,14 +53,13 @@ public class ClosureCompilerInputGenerator {
   public List<File> getInputFiles() throws IOException {
     Map<String, DependencyInfo> depMap = getDependencyMap();
     
-    // Two unique requires can both be associated with the same file so this
-    // must be a set to inorder to dedupe. E.g. goog.fx.Transition and
-    // goog.fx.Transition.EventType
-    List<File> files = Lists.newArrayList();
-    files.add(closureBaseFile);
+    // base.js needs to be the very first input file added to the args.
+    List<File> files = Lists.newArrayList(closureBaseFile);
     files.addAll(depsFiles);
 
-    // base.js needs to be the very first input file added to the args.
+    // Two unique requires can both be associated with the same file so this
+    // must be a Set to handle duplicates. E.g. goog.fx.Transition and
+    // goog.fx.Transition.EventType
     Set<File> userFiles = Sets.newHashSet();
     Set<String> requires = Sets.newHashSet();
     Queue<String> unprocessedRequires = new LinkedList<String>();
