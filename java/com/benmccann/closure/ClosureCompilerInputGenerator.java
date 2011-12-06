@@ -116,7 +116,9 @@ public class ClosureCompilerInputGenerator {
     options.setWarningLevel(DiagnosticGroups.AMBIGUOUS_FUNCTION_DECL, CheckLevel.ERROR);
     options.setWarningLevel(DiagnosticGroups.CHECK_PROVIDES, CheckLevel.ERROR);
     options.setWarningLevel(DiagnosticGroups.CHECK_REGEXP, CheckLevel.ERROR);
-    options.setWarningLevel(DiagnosticGroups.CHECK_TYPES, CheckLevel.ERROR);
+    // TODO: turn to error when Closure library is fixed
+    // http://code.google.com/p/closure-library/issues/detail?id=400
+    options.setWarningLevel(DiagnosticGroups.CHECK_TYPES, CheckLevel.WARNING);
     options.setWarningLevel(DiagnosticGroups.CHECK_USELESS_CODE, CheckLevel.ERROR);
     options.setWarningLevel(DiagnosticGroups.CHECK_VARIABLES, CheckLevel.ERROR);
     options.setWarningLevel(DiagnosticGroups.CONST, CheckLevel.ERROR);
@@ -137,26 +139,7 @@ public class ClosureCompilerInputGenerator {
     options.setWarningLevel(DiagnosticGroups.TYPE_INVALIDATION, CheckLevel.ERROR);
     options.setWarningLevel(DiagnosticGroups.UNDEFINED_VARIABLES, CheckLevel.ERROR);
     options.setWarningLevel(DiagnosticGroups.UNKNOWN_DEFINES, CheckLevel.ERROR);
-    options.setWarningLevel(DiagnosticGroups.VISIBILITY, CheckLevel.ERROR);    
-    
-    // These options are set the old way until the Closure team migrates them to Diagnostic Groups
-    options.aggressiveVarCheck = CheckLevel.ERROR;
-    options.checkCaja = true;
-    options.checkControlStructures = true;
-    options.checkDuplicateMessages = true;
-    options.checkFunctions = CheckLevel.ERROR;
-    options.checkGlobalNamesLevel = CheckLevel.ERROR;
-    options.checkMethods = CheckLevel.ERROR;
-    options.checkMissingReturn = CheckLevel.ERROR;
-    options.checkRequires = CheckLevel.ERROR;
-    options.checkSuspiciousCode = true;
-    options.checkSymbols = true;
-    options.checkTypedPropertyCalls = true;
-    options.checkUnreachableCode = CheckLevel.ERROR;
-
-    // TODO: turn to error when Closure library is fixed
-    // http://code.google.com/p/closure-library/issues/detail?id=400
-    options.reportMissingOverride = CheckLevel.WARNING;
+    options.setWarningLevel(DiagnosticGroups.VISIBILITY, CheckLevel.ERROR);
   }
 
 }

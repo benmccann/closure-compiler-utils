@@ -12,7 +12,7 @@ local.properties
 
 # Compiled
 build
-**/bin
+bin
 *.py[co]
 
 # Temporary

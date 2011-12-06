@@ -1,11 +1,12 @@
 // Copyright 2011 Benjamin McCann. All Rights Reserved.
 
 apply plugin: 'java'
+apply plugin: 'eclipse'
 apply plugin: 'maven'
 apply plugin: 'signing'
 
 group = 'com.benmccann'
-version = '0.1'
+version = '0.2'
 
 sourceSets {
   main {

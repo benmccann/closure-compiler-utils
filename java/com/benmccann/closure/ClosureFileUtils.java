@@ -55,12 +55,11 @@ public class ClosureFileUtils {
    * @return the requested file
    */
   private static File getFileRelativeToGoogDirectory(File closureLibrary, String path) {
-    File baseDotJs = new File(new StringBuilder(closureLibrary.getAbsolutePath())
-        .append(File.separator).append("closure")
-        .append(File.separator).append(path).toString());
+    path = new StringBuilder("closure").append(File.separator).append(path).toString();
+    File baseDotJs = new File(closureLibrary, path);
     if (!baseDotJs.exists()) {
-      throw new IllegalArgumentException("Could not find closure-library/closure"
-          + File.separator + path + " in given directory.");
+      throw new IllegalArgumentException(
+          "Could not find closure-library/" + path + " in given directory.");
     }
     return baseDotJs;
   }
