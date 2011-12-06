@@ -115,9 +115,7 @@ public class ClosureCompilerInputGenerator {
     options.setWarningLevel(DiagnosticGroups.AMBIGUOUS_FUNCTION_DECL, CheckLevel.ERROR);
     options.setWarningLevel(DiagnosticGroups.CHECK_PROVIDES, CheckLevel.ERROR);
     options.setWarningLevel(DiagnosticGroups.CHECK_REGEXP, CheckLevel.ERROR);
-    // TODO: turn to error when Closure library is fixed
-    // http://code.google.com/p/closure-library/issues/detail?id=400
-    options.setWarningLevel(DiagnosticGroups.CHECK_TYPES, CheckLevel.WARNING);
+    options.setWarningLevel(DiagnosticGroups.CHECK_TYPES, CheckLevel.ERROR);
     options.setWarningLevel(DiagnosticGroups.CHECK_USELESS_CODE, CheckLevel.ERROR);
     options.setWarningLevel(DiagnosticGroups.CHECK_VARIABLES, CheckLevel.ERROR);
     options.setWarningLevel(DiagnosticGroups.CONST, CheckLevel.ERROR);

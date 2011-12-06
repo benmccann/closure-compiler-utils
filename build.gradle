@@ -6,7 +6,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 group = 'com.benmccann'
-version = '0.2'
+version = '0.1'
 
 sourceSets {
   main {
