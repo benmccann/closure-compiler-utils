@@ -3,6 +3,7 @@
 package com.benmccann.closure;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -38,6 +39,13 @@ public class CompilerInvoker {
     this.externFiles = externFiles;
     this.entryPoints = entryPoints;
     this.compilerOptions = compilerOptions;
+  }
+
+  public void compile(File outputFile)
+      throws IOException, JavascriptCompilationException {
+    outputFile.getParentFile().mkdirs();
+    outputFile.createNewFile();
+    compile(new FileOutputStream(outputFile));
   }
 
   public void compile(OutputStream outputStream)
