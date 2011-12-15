@@ -8,6 +8,10 @@ Main classes
 **ClosureDevelopmentServlet:** dynamically recompiles your JS on each page load  
 **JsDepsGenerator:** calls out to depswriter.py to generate a deps.js file  
 
+Downloading
+-----------
+The compiled version is [available in the Maven Central Repository](http://search.maven.org/#search%7Cga%7C1%7Ccom.benmccann).
+
 License
 -------
 Licensed under the [Version 2.0 Apache Software License](http://www.apache.org/licenses/LICENSE-2.0.txt).
