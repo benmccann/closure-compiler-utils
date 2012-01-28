@@ -1,0 +1,31 @@
+// Copyright 2011 Benjamin McCann. All Rights Reserved.
+
+group = 'com.benmccann'
+eclipseProjectPrefix = 'closure-utils'
+
+apply plugin: 'eclipse'
+eclipse {
+  project {
+    name = eclipseProjectPrefix + '-' + project.name
+  }
+}
+
+subprojects {
+  apply plugin: 'eclipse'
+  apply plugin: 'java'
+
+  sourceCompatibility = 1.6
+  buildDir = '../build/' + project.name
+  group = parent.group
+  version = '0.3'
+
+  eclipse {
+    project {
+      name = eclipseProjectPrefix + '-' + project.name
+    }
+  }
+
+  repositories {
+    mavenCentral()
+  }
+}

@@ -29,8 +29,6 @@ public class ClosureCompilerInputGenerator {
 
   private static final Logger LOG =
       Logger.getLogger(ClosureCompilerInputGenerator.class.getName());
-  
-  private static final long serialVersionUID = 1L;
 
   private final File closureBaseFile;
   private final List<File> depsFiles;

@@ -1,6 +1,7 @@
 # Gradle
 .gradle
 .externalToolBuilders
+main/gradle.properties
 
 # Eclipse
 .project
@@ -21,3 +22,6 @@ bin
 *.bak
 *.swp
 *~.nib
+
+# Closure
+sample/js/deps.js

@@ -1,0 +1,27 @@
+// Copyright 2012 Benjamin McCann. All Rights Reserved.
+
+sourceSets {
+  main {
+    java { srcDir 'java' }
+    resources {
+      srcDir 'resources'
+      srcDir 'webapp'
+    }
+  }
+}
+
+dependencies {
+  compile project(':main')  // Depend on the closure-compiler-utils from source instead of the Maven repo
+  compile 'com.google.guava:guava:11.0.1'
+  compile 'com.google.inject:guice:3.0'
+  compile 'com.google.inject.extensions:guice-struts2:3.0'
+  compile 'org.apache.struts:struts2-convention-plugin:2.2.3.1'
+  compile 'org.apache.struts:struts2-core:2.2.3.1'
+  compile 'org.apache.struts:struts2-json-plugin:2.2.3.1'
+  compile 'org.eclipse.jetty:jetty-io:8.0.4.v20111024'
+  compile 'org.eclipse.jetty:jetty-server:8.0.4.v20111024'
+  compile 'org.eclipse.jetty:jetty-servlet:8.0.4.v20111024'
+  compile 'org.eclipse.jetty:jetty-util:8.0.4.v20111024'
+  compile 'org.eclipse.jetty:jetty-webapp:8.0.4.v20111024'
+  compile 'org.mortbay.jetty:jsp-2.1-glassfish:2.1.v20100127'
+}
